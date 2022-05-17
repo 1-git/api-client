@@ -1,0 +1,13 @@
+{
+    "name": "1-git/api",
+    "description": "Test api",
+    "autoload": {
+        "psr-4": {
+            "OneGit\\Api\\": "src/"
+        }
+    },
+    "require": {
+        "php": "8.1.*",
+        "guzzlehttp/guzzle": "^7.4"
+    }
+}
