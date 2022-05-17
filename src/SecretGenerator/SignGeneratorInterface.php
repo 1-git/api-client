@@ -14,5 +14,5 @@ interface SignGeneratorInterface
      * @param array $params
      * @return string
      */
-    public function getSign(array $params): string;
+    public function getSign(...$params): string;
 }

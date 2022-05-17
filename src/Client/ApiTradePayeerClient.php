@@ -34,35 +34,17 @@ class ApiTradePayeerClient implements ApiClientInterface
     public const DEFAULT_PAIR = 'BTC_USDT';
 
     /**
-     * @var ClientInterface
-     */
-    protected ClientInterface $client;
-
-    /**
-     * @var RequestBuilderInterface
-     */
-    protected RequestBuilderInterface $requestBuilder;
-
-    /**
-     * @var ResponseMapperInterface
-     */
-    protected ResponseMapperInterface $responseMapper;
-
-    /**
      * ApiTradePayeerClient constructor.
      * @param ClientInterface $client
      * @param RequestBuilderInterface $requestBuilder
      * @param ResponseMapperInterface $responseMapper
      */
     public function __construct(
-        ClientInterface $client,
-        RequestBuilderInterface $requestBuilder,
-        ResponseMapperInterface $responseMapper
+        protected ClientInterface $client,
+        protected RequestBuilderInterface $requestBuilder,
+        protected ResponseMapperInterface $responseMapper,
     )
     {
-        $this->client = $client;
-        $this->requestBuilder = $requestBuilder;
-        $this->responseMapper = $responseMapper;
     }
 
     /**

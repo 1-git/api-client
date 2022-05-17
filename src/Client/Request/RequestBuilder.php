@@ -17,26 +17,6 @@ class RequestBuilder implements RequestBuilderInterface
     protected const BASE_API_URL = 'https://payeer.com/api/trade/';
 
     /**
-     * @var SignGeneratorInterface
-     */
-    protected SignGeneratorInterface $signGenerator;
-
-    /**
-     * @var SecretParamTransfer
-     */
-    protected SecretParamTransfer $secretParamTransfer;
-
-    /**
-     * @var string
-     */
-    protected string $requestClassName;
-
-    /**
-     * @var string
-     */
-    protected string $baseApiUrl = self::BASE_API_URL;
-
-    /**
      * RequestBuilder constructor.
      * @param SignGeneratorInterface $signGenerator
      * @param SecretParamTransfer $secretParamTransfer
@@ -44,16 +24,12 @@ class RequestBuilder implements RequestBuilderInterface
      * @param string $baseApiUrl
      */
     public function __construct(
-        SignGeneratorInterface $signGenerator,
-        SecretParamTransfer $secretParamTransfer,
-        string $requestClassName,
-        string $baseApiUrl = self::BASE_API_URL
+        protected SignGeneratorInterface $signGenerator,
+        protected SecretParamTransfer $secretParamTransfer,
+        protected string $requestClassName,
+        protected string $baseApiUrl = self::BASE_API_URL,
     )
     {
-        $this->signGenerator = $signGenerator;
-        $this->secretParamTransfer = $secretParamTransfer;
-        $this->requestClassName = $requestClassName;
-        $this->baseApiUrl = $baseApiUrl;
     }
 
     /**
@@ -97,7 +73,7 @@ class RequestBuilder implements RequestBuilderInterface
         return [
             'Content-Type: application/json',
             'API-ID: ' . $this->secretParamTransfer->getId(),
-            'API-SIGN: ' . $this->signGenerator->getSign(['data' => $data, 'key' => $this->secretParamTransfer->getKey()]),
+            'API-SIGN: ' . $this->signGenerator->getSign(data: $data, key: $this->secretParamTransfer->getKey()),
         ];
     }
 }
