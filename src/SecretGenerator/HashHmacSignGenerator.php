@@ -17,7 +17,7 @@ class HashHmacSignGenerator implements SignGeneratorInterface
      * @param string $algo
      */
     public function __construct(
-        protected string $algo = self::ALGO,
+        protected readonly string $algo = self::ALGO,
     )
     {
     }

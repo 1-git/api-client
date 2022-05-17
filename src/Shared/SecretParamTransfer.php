@@ -11,13 +11,12 @@ namespace OneGit\ApiClient\Shared;
 class SecretParamTransfer
 {
     /**
-     * SecretParamTransfer constructor.
      * @param string $key
      * @param string $id
      */
     public function __construct(
-        protected string $key,
-        protected string $id,
+        protected readonly string $key,
+        protected readonly string $id,
     )
     {
     }

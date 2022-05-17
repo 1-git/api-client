@@ -24,10 +24,10 @@ class RequestBuilder implements RequestBuilderInterface
      * @param string $baseApiUrl
      */
     public function __construct(
-        protected SignGeneratorInterface $signGenerator,
-        protected SecretParamTransfer $secretParamTransfer,
-        protected string $requestClassName,
-        protected string $baseApiUrl = self::BASE_API_URL,
+        protected readonly SignGeneratorInterface $signGenerator,
+        protected readonly SecretParamTransfer $secretParamTransfer,
+        protected readonly string $requestClassName,
+        protected readonly string $baseApiUrl = self::BASE_API_URL,
     )
     {
     }

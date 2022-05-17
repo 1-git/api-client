@@ -31,7 +31,7 @@ class ApiTradePayeerClient implements ApiClientInterface
     public const METHOD_MY_HISTORY = 'my_history';
     public const METHOD_MY_TRADES = 'my_trades';
 
-    public const DEFAULT_PAIR = 'BTC_USDT';
+    public const DEFAULT_PAIR = 'BTC_USD';
 
     /**
      * ApiTradePayeerClient constructor.
@@ -40,9 +40,9 @@ class ApiTradePayeerClient implements ApiClientInterface
      * @param ResponseMapperInterface $responseMapper
      */
     public function __construct(
-        protected ClientInterface $client,
-        protected RequestBuilderInterface $requestBuilder,
-        protected ResponseMapperInterface $responseMapper,
+        protected readonly ClientInterface $client,
+        protected readonly RequestBuilderInterface $requestBuilder,
+        protected readonly ResponseMapperInterface $responseMapper,
     )
     {
     }
