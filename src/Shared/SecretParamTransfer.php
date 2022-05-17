@@ -1,23 +1,37 @@
 <?php
 
-namespace OneGit\Api;
+declare(strict_types=1);
+
+namespace OneGit\ApiClient\Shared;
 
 /**
  * Class SecretParamTransfer
- * @package OneGit\Api
+ * @package OneGit\ApiClient\Shared
  */
 class SecretParamTransfer
 {
+    /**
+     * @var string
+     */
+    protected string $key;
+
+    /**
+     * @var string
+     */
+    protected string $id;
+
     /**
      * SecretParamTransfer constructor.
      * @param string $key
      * @param string $id
      */
     public function __construct(
-        protected string $key,
-        protected string $id,
+        string $key,
+        string $id
     )
     {
+        $this->key = $key;
+        $this->id = $id;
     }
 
     /**

@@ -1,17 +1,18 @@
 <?php
 
-namespace OneGit\Api\SecretGenerator;
+declare(strict_types=1);
+
+namespace OneGit\ApiClient\SecretGenerator;
 
 /**
  * Interface SignGeneratorInterface
- * @package OneGit\Api\SecretGenerator
+ * @package OneGit\ApiClient\SecretGenerator
  */
 interface SignGeneratorInterface
 {
     /**
-     * @param string $data
-     * @param string $key
+     * @param array $params
      * @return string
      */
-    public function getSign(string $data, string $key): string;
+    public function getSign(array $params): string;
 }
